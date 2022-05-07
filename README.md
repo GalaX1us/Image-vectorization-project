@@ -10,11 +10,11 @@ The **first** command returns the image (PBM) information before any simplificat
 ```./main -i <file.pbm>```
 
 The **second** command returns the image (PBM) information after simplification :
-```./main -ia <file.pbm> <threshold distance> <simplification degree>
 
+```./main -ia <file.pbm> <threshold distance> <simplification degree>```
 There are three simplification degrees :
  - **1** which corresponds to the douglas peucker algorithm with Bézier curves of degree 1 (segments)
  - **2** which corresponds to the douglas peucker algorithm with Bézier curves of degree 2
  - **3** which corresponds to the douglas peucker algorithm with Bézier curves of degree 3 
-```
+
 
