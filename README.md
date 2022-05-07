@@ -14,9 +14,9 @@ The **second** command returns the image (PBM) information **after simplificatio
 ```./main -ia <file.pbm> <simplification tolerance> <simplification degree>```
 
 There are three possible types of simplifications :
- - **1** which corresponds to the douglas peucker algorithm with **Bézier curves of degree 1 (segments)**
- - **2** which corresponds to the douglas peucker algorithm with **Bézier curves of degree 2**
- - **3** which corresponds to the douglas peucker algorithm with **Bézier curves of degree 3**
+ - ```1``` which corresponds to the douglas peucker algorithm with **Bézier curves of degree 1 (segments)**
+ - ```2``` which corresponds to the douglas peucker algorithm with **Bézier curves of degree 2**
+ - ```3``` which corresponds to the douglas peucker algorithm with **Bézier curves of degree 3**
 
 The **third** command **converts** the simplified image to an **.eps** file:
 
