@@ -10,6 +10,7 @@ The **first** command returns the image (PBM) information **before any simplific
 ```./main -i <file.pbm>```
 
 The **second** command returns the image (PBM) information **after simplification** :
+
 ```./main -ia <file.pbm> <threshold distance> <simplification degree>```
 
 There are three possible types of simplifications :
