@@ -18,4 +18,10 @@ There are three possible types of simplifications :
  - **2** which corresponds to the douglas peucker algorithm with **Bézier curves of degree 2**
  - **3** which corresponds to the douglas peucker algorithm with **Bézier curves of degree 3**
 
+The **third** command **converts** the simplified image to an **.eps** file:
 
+```./main -e <file.pbm> <simplification tolerance> <fill/stroke> <simplification degree>```
+
+There are two different options when converting to an eps file :
+ - ```fill``` will fill the space between the different contours
+ - ```stroke``` will only display the simplified contours
