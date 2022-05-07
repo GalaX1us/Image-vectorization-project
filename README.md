@@ -1,7 +1,7 @@
 # Image vectorization project
 PBM to EPS image vectorization project done alone during the [MAP401] teaching unit at the Université Grenoble Alpes
  
-# How to use it ?
+# How to use it
 Make sure to **compile** the files before use with the command  : ```make```
 
 Once compiled, all commands will **run** with the **prefix** ```./main```
@@ -25,3 +25,10 @@ The **third** command **converts** the simplified image to an **.eps** file:
 There are two different options when converting to an eps file :
  - ```fill``` will fill the space between the different contours
  - ```stroke``` will only display the simplified contours
+
+# Tests
+There are different tests to verify that our algorithm correctly simplifies the image contours
+
+Command to run **simplification tests** with **Bezier 2** curves : ```./testunitaires_2```
+
+Command to run **simplification tests** with **Bezier 3** curves : ```./testunitaires_3```
