@@ -4,6 +4,7 @@
 #include "image.h"
 #include "geom2d.h"
 
+
 typedef enum {NORD, EST, SUD, OUEST} Orientation;
 
 typedef struct Robot_{
@@ -15,8 +16,8 @@ typedef struct Robot_{
 typedef struct Cellule_Liste_Point_
 {
 	Point data; 
-	   /* donn�e de l'�l�ment de liste */
-	struct Cellule_Liste_Point_* suiv; /* pointeur sur l'�l�ment suivant */
+	   /* donnee de l'element de liste */
+	struct Cellule_Liste_Point_* suiv; /* pointeur sur l'element suivant */
 } Cellule_Liste_Point;
 
 
@@ -24,23 +25,23 @@ typedef struct Cellule_Liste_Point_
 /*---- le type liste de point ----*/
 typedef struct Liste_Point_
 {
-	unsigned int taille;        /* nombre d'�l�ments dans la liste */
-	Cellule_Liste_Point *first; /* pointeur sur le premier �l�ment de la liste */
-	Cellule_Liste_Point *last;  /* pointeur sur le dernier �l�ment de la liste */
+	unsigned int taille;        /* nombre d'elements dans la liste */
+	Cellule_Liste_Point *first; /* pointeur sur le premier element de la liste */
+	Cellule_Liste_Point *last;  /* pointeur sur le dernier element de la liste */
 	                       /* first = last = NULL et taille = 0 <=> liste vide */
 } Liste_Point;
 
 typedef struct Cellule_Liste_Contour_
 {
-	Liste_Point data;    /* donn�e de l'�l�ment de liste */
+	Liste_Point data;    /* donnee de l'element de liste */
 	struct Cellule_Liste_Contour_* suiv; /* pointeur sur l'�l�ment suivant */
 } Cellule_Liste_Contour;
 
 typedef struct Liste_Contour_
 {
-	unsigned int taille;        /* nombre d'�l�ments dans la liste */
-	Cellule_Liste_Contour *first; /* pointeur sur le premier �l�ment de la liste */
-	Cellule_Liste_Contour *last;  /* pointeur sur le dernier �l�ment de la liste */
+	unsigned int taille;        /* nombre d'elements dans la liste */
+	Cellule_Liste_Contour *first; /* pointeur sur le premier element de la liste */
+	Cellule_Liste_Contour *last;  /* pointeur sur le dernier element de la liste */
 	                       /* first = last = NULL et taille = 0 <=> liste vide */
 } Liste_Contour;
 
@@ -127,5 +128,6 @@ void afficher_infos(Liste_Contour LC);
 
 //écris le contour d'une image dans un fichier
 void ecrire_contour_fichier(Liste_Contour LC, char* nomSortie);
+
 
 #endif /* _CONTOUR_IMAGE_H_ */
