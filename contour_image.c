@@ -25,6 +25,7 @@ bool trouver_pixel_depart(double *x, double *y, Image I)
 	return false;
 }
 
+// Cette fonction initialise le robot en fonction des paramètres
 Robot creer_robot(double x, double y, Orientation o)
 {
 	Robot r;
@@ -35,6 +36,7 @@ Robot creer_robot(double x, double y, Orientation o)
 	return r;
 }
 
+//Cette fonction affiche à l'écran les coordonées actuelle du robot
 void memoriser_position(Robot r)
 {
 	printf("(%.1f  %.1f)\n", r.x, r.y);
@@ -167,9 +169,9 @@ Liste_Contour ChercherPlusieurContour(Image I)
 
 
 
-/* cr�er une cellule de liste avec l'�l�ment v
-   renvoie le pointeur sur la cellule de liste cr��e
-   la fonction s'arrete si la cr�ation n'a pas pu se faire */
+/* creer une cellule de liste avec l'element v
+   renvoie le pointeur sur la cellule de liste créée
+   la fonction s'arrete si la creation n'a pas pu se faire */
 Cellule_Liste_Point *creer_element_liste_Point(Point v)
 {
 	Cellule_Liste_Point *el;
@@ -327,10 +329,10 @@ Tableau_Point sequence_points_liste_vers_tableau(Liste_Point L)
 	return T;
 }
 
-/* �crire le contour L � l'�cran
+/* ecrire le contour L e l'ecran
    cette fonction montre un exemple de conversion d'une liste de points en
    tableau de points afin de pouvoir par la suite acc�der aux �l�ments d'une
-   s�quence de points par indice */
+   sequence de points par indice */
 void ecrire_contour_ecran(Liste_Point L)
 {
 	Tableau_Point TP = sequence_points_liste_vers_tableau(L);
