@@ -11,6 +11,8 @@ void erreur()
 {
     fprintf(stderr, "Erreur : ./main -i <fichier.pbm> <dist seuil> <degree simplification> infos sur l'image apres simplification\n");
     fprintf(stderr, "         ./main -ia <fichier.pbm> infos sur l'image avant simplification\n");
+    fprintf(stderr, "         ./main -fa <fichier.pbm> pour écrire les contours de l'image avant simplification dans un fichier\n");
+    fprintf(stderr, "         ./main -f <fichier.pbm> <dist seuil> <degree simplification> pour écrire les contours de l'image simplfie dans un fichier\n");
     fprintf(stderr, "         ./main -e <fichier.pbm> <dist seuil> <option : fill/stroke> <degree simplification> pour convertir l'image simplifie en fichier EPS\n");
     exit(1);
 }
@@ -51,13 +53,30 @@ int main(int argc, char *argv[])
         }else{
             erreur();
         }
-    }else
+    }else if(argc == 3 && strcmp(argv[1], "-fa") == 0 ){
+        option=3;
+
+    }else if(argc == 5 && strcmp(argv[1], "-f") == 0 ){
+        option = 4;
+        if (strcmp(argv[4],"1")==0){
+            degree=1;
+        }else if(strcmp(argv[4],"2")==0){
+            degree=2;
+        }else if(strcmp(argv[4],"3")==0){
+            degree=3;
+        }else{
+            erreur();
+        }
+    }    
+    else
     {
         erreur();
     }
 
     char nomSortieEps[50];
     char nomSortie[50];
+    char nomSortieContour[50];
+
     strcpy(nomSortie,argv[2]);
     nomSortie[strlen(nomSortie) - 4] = '\0';
 
@@ -66,12 +85,17 @@ int main(int argc, char *argv[])
 
     Liste_Contour Simp = creer_liste_Contour_vide(); 
     Liste_Contour_Bezier Simp_Bez = creer_liste_Contour_Bezier_vide();
-    
-    double seuil = atof(argv[3]);
+
+    double seuil;
+    if (degree!=-1)
+    {
+    seuil = atof(argv[3]);
+    }
 
     switch (degree)
     {
     case 1:
+        
         Simp = simplification_segments(LC,seuil);
         break;
     case 2:
@@ -113,6 +137,28 @@ int main(int argc, char *argv[])
             break;
         case 2: case 3:
             conversion_eps_bezier(Simp_Bez,nomSortieEps,I,argv[4]);
+            break;
+        default:
+            break;
+        }
+        break;
+    case 3:
+        strcpy(nomSortieContour, nomSortie);
+        strcat(nomSortieContour, "_contours.txt");
+        printf("Conversion de %s vers %s\n",argv[2],nomSortieContour);
+        ecrire_contour_fichier(Simp,nomSortieContour);
+        break;
+    case 4:
+        strcpy(nomSortieContour, nomSortie);
+        strcat(nomSortieContour, "_contours.txt");
+        printf("Conversion de %s vers %s\n",argv[2],nomSortieContour);
+        switch (degree)
+        {
+        case 1:
+            ecrire_contour_fichier(Simp,nomSortieContour);
+            break;
+        case 2: case 3:
+            ecrire_contour_bezier_fichier(Simp_Bez,nomSortieContour);
             break;
         default:
             break;
