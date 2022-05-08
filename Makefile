@@ -37,7 +37,7 @@ INCLUDEOPTS = -I$(INCDIR)
 COMPILOPTS = -g -Wall $(INCLUDEOPTS)
 
 # liste des executables
-EXECUTABLES = main testunitaires_2 testunitaires_3
+EXECUTABLES = main testunitaires_2 testunitaires_3 test_image test_geom
 
 
 #############################################################################
@@ -118,7 +118,22 @@ simplification.o : simplification.c simplification.h image.h geom2d.h types_macr
 	@echo "Compilation du module main"
 	@echo "---------------------------------------------"
 	$(CC) -c $(COMPILOPTS) $<
+
+test_image.o : test_image.c image.h 
+	@echo ""
+	@echo "---------------------------------------------"
+	@echo "Compilation du module test_image"
+	@echo "---------------------------------------------"
+	$(CC) -c $(COMPILOPTS) $<
+
+test_geom.o : test_geom.c geom2d.h
+	@echo ""
+	@echo "---------------------------------------------"
+	@echo "Compilation du module test_image"
+	@echo "---------------------------------------------"
+	$(CC) -c $(COMPILOPTS) $<
 		
+
 ########################################################
 # regles explicites de creation des executables
 
@@ -143,6 +158,19 @@ testunitaires_3 : testunitaires_3.o image.o contour_image.o geom2d.o eps.o simpl
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
+test_image : test_image.o image.o 
+	@echo ""
+	@echo "---------------------------------------------"
+	@echo "Creation de l'executable "$@
+	@echo "---------------------------------------------"
+	$(CC) $^ $(LDOPTS) -o $@
+
+test_geom : test_geom.o geom2d.o 
+	@echo ""
+	@echo "---------------------------------------------"
+	@echo "Creation de l'executable "$@
+	@echo "---------------------------------------------"
+	$(CC) $^ $(LDOPTS) -o $@
 
 # regle pour "nettoyer" le r�pertoire
 clean:
