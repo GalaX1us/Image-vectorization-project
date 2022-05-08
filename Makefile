@@ -37,7 +37,7 @@ INCLUDEOPTS = -I$(INCDIR)
 COMPILOPTS = -g -Wall $(INCLUDEOPTS)
 
 # liste des executables
-EXECUTABLES = main_6 main_7 testunitaires_2 testunitaires_3 test_image test_geom
+EXECUTABLES = main testunitaires_2 testunitaires_3 test_image test_geom
 
 
 #############################################################################
@@ -91,15 +91,7 @@ eps.o : eps.c eps.h image.h contour_image.h
 	@echo "---------------------------------------------"
 	$(CC) -c $(COMPILOPTS) $<
 
-
-main_6.o : main_6.c image.h image.h types_macros.h eps.h
-	@echo ""
-	@echo "---------------------------------------------"
-	@echo "Compilation du module main"
-	@echo "---------------------------------------------"
-	$(CC) -c $(COMPILOPTS) $<
-
-main_7.o : main_7.c image.h image.h types_macros.h eps.h
+main.o : main.c image.h image.h types_macros.h eps.h
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Compilation du module main"
@@ -145,14 +137,7 @@ test_geom.o : test_geom.c geom2d.h
 ########################################################
 # regles explicites de creation des executables
 
-main_6 : main_6.o image.o contour_image.o geom2d.o eps.o simplification.o
-	@echo ""
-	@echo "---------------------------------------------"
-	@echo "Creation de l'executable "$@
-	@echo "---------------------------------------------"
-	$(CC) $^ $(LDOPTS) -o $@
-
-main_7 : main_7.o image.o contour_image.o geom2d.o eps.o simplification.o
+main : main.o image.o contour_image.o geom2d.o eps.o simplification.o
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
