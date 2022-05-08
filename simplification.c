@@ -350,3 +350,24 @@ void afficher_infos_bis(Liste_Contour_Bezier LC){
 	printf("Nombre de contours : %d\n",nombre_contours_bis(LC));
 	printf("Nombre total de segments : %d\n",nombre_segments_total_bis(LC));
 }
+
+void ecrire_contour_bezier_fichier(Liste_Contour_Bezier LC, char* nomSortie)
+{
+	UINT nbC = nombre_contours_bis(LC);
+	FILE* f = fopen(nomSortie,"w");
+	fprintf(f,"%d\n",nbC);
+	Cellule_Liste_Contour_Bezier* cc = LC.first;
+	while (cc!=NULL)
+    {
+        Tableau_Bezier3 TP = sequence_bezier3_liste_vers_tableau(cc->data);
+		int t = TP.taille;
+		fprintf(f, "\n");
+		for (int i = 0; i < t; i++)
+		{
+		fprintf(f, "%.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f\n", TP.tab[i].c0.x,TP.tab[i].c0.y,TP.tab[i].c1.x,TP.tab[i].c1.y,TP.tab[i].c2.x,TP.tab[i].c2.y,TP.tab[i].c3.x,TP.tab[i].c3.y);
+		}
+		fprintf(f, "\n");
+        cc=cc->suiv;
+    };
+	fclose(f);
+}
