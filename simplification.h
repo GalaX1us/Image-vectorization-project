@@ -60,4 +60,7 @@ Liste_Contour_Bezier creer_liste_Contour_Bezier_vide();
 //affiche les infos d'une image après simplification par bezier 2 ou 3
 void afficher_infos_bis(Liste_Contour_Bezier LC);
 
+//ecrit le contours d'une image simplfiee par des courbes de bezier dans un fichier
+void ecrire_contour_bezier_fichier(Liste_Contour_Bezier LC, char* nomSortie);
+
 #endif /* _SIMPLIFICATION_H_ */
