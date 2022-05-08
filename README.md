@@ -7,6 +7,7 @@ Make sure to **compile** the files before use with the command  : ```make```
 Once compiled, all commands will **run** with the **prefix** ```./main```
 
 The **first** command returns the image (PBM) information **before any simplification** :
+
 ```./main -i <file.pbm>```
 
 The **second** command returns the image (PBM) information **after simplification** :
