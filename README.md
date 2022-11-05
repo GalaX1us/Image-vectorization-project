@@ -1,5 +1,7 @@
 # Image vectorization project
-PBM to EPS image vectorization project done alone during the [MAP401] teaching unit at the Université Grenoble Alpes
+PBM to EPS image vectorization project
+
+This program simplifies the contours of a PBM image and converts the result into an EPS file
  
 # How to use it
 Make sure to **compile** the files before use with the command  : ```make```
