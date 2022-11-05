@@ -36,7 +36,7 @@ There are two different options when converting to an eps file :
  - ```stroke``` will only display the simplified contours
 
 # Tests
-There are different tests to verify that our algorithm correctly simplifies the image contours
+There are different unit tests to verify that our algorithm correctly simplifies the image contours
 
 Command to run **simplification tests** with **Bezier 2** curves : ```./testunitaires_2```
 
